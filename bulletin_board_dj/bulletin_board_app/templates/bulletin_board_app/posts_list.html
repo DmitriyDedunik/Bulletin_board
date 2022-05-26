@@ -1,0 +1,9 @@
+<h1>Посты</h1>
+<p>
+    {% for post in posts %}
+        <p>
+            {{ post.text }}
+            <i>{{ post.create }}</i>
+        </p>
+    {% endfor %}
+</p>

@@ -22,3 +22,11 @@ def posts_list(request):
     }
     return render(request, template, context)
 
+def post_detail(request, post_id):
+    template = 'bulletin_board_app/posts_info.html'
+    post = Post.objects.get(pk=post_id)
+    context = {
+        'post': post,
+    }
+    return render(request, template, context)
+

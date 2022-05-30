@@ -1,9 +1,20 @@
-<h1>Посты</h1>
-<p>
-    {% for post in posts %}
-        <p>
-            {{ post.text }}
-            <i>{{ post.create }}</i>
-        </p>
-    {% endfor %}
-</p>
+{% extends 'base.html' %}
+
+{% block title %}
+Посты
+{% endblock %}
+
+{% block content %}
+    <h1>Посты</h1>
+    <p>
+        {% for post in posts %}
+            <p>
+                <a href="{% url 'test_app:post' post.id %}"> {{ post.text }}</a><br/>
+                {% if post.group %}
+                    {{ post.group.name }}
+                {% endif %}
+                <i>{{ post.create }}</i>
+            </p>
+        {% endfor %}
+    </p>
+{% endblock %}

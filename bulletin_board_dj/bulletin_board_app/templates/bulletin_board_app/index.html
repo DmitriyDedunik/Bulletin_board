@@ -1,10 +1,19 @@
-<h1>Hello</h1>
-<p>
-{{ template_var  }}
-</p>
-<p>
-    {% for n in numbers %}
-        <li>{{n}}</li>
-    {%endfor%}
-    {{ numbers  }}
-</p>
+
+{% extends 'base.html' %}
+
+{% block title %}
+Hello!
+{% endblock %}
+
+{% block content %}
+    <h1>Hello</h1>
+    <p>
+    {{ template_var  }}
+    </p>
+    <p>
+        {% for n in numbers %}
+            <li>{{n}}</li>
+        {%endfor%}
+        {{ numbers  }}
+    </p>
+{% endblock %}

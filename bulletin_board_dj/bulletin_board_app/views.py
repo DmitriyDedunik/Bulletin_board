@@ -1,9 +1,5 @@
-from difflib import context_diff
-from importlib.resources import contents
-from multiprocessing import context
-from re import template
 from django.shortcuts import render
-from .models import Post
+from .models import Group, Post
 
 def hello(request):
     template = 'bulletin_board_app/index.html'
@@ -29,4 +25,15 @@ def post_detail(request, post_id):
         'post': post,
     }
     return render(request, template, context)
+
+def groups_list(request):
+    template = 'bulletin_board_app/groups_list.html'
+    groups = Group.objects.all()
+    context = {
+        'groups': groups,
+    }
+    return render(request, template, context)
+
+def group_posts(request):
+    pass
 
